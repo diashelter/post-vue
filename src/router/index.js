@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import AboutView from '../views/AboutView.vue'
-import Bootstrap from '../views/Bootstrap.vue'
+import CreateView from '../views/CreateView.vue'
+import Schedule from '../views/Schedule.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,12 +14,12 @@ const router = createRouter({
     {
       path: '/novo',
       name: 'novo',
-      component: AboutView
+      component: CreateView
     },
     {
       path: '/agendar',
       name: 'agendar',
-      component: Bootstrap
+      component: Schedule
     }
   ]
 })
