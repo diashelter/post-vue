@@ -4,17 +4,18 @@ export default class PostService {
     }
 
     getPosts() {
-        return this.httpAdapter.get("http://localhost/api/posts");
+        return this.httpAdapter.get("https://post-app-api.herokuapp.com/api/posts");
+    }
+    
+    savePost(post) {
+        return this.httpAdapter.post("https://post-app-api.herokuapp.com/api/posts", post);
     }
 
-    savePost(post) {
-        return this.httpAdapter.post("http://localhost/api/posts", post);
-    }
     getPostsToSchedule() {
-        return this.httpAdapter.get("http://localhost/api/schedule/posts");
+        return this.httpAdapter.get("https://post-app-api.herokuapp.com/api/schedule/posts");
     }
 
     schedulePost(id) {
-        return this.httpAdapter.put("http://localhost/api/schedule/posts", id);
+        return this.httpAdapter.put("https://post-app-api.herokuapp.com/api/schedule/posts", id);
     }
 }

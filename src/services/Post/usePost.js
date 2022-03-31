@@ -14,10 +14,12 @@ export default function usePost() {
     });
     const postToSchedule = ref([]);
     const postSelected = ref(null);
+    const quantityPosts = ref(0);
 
     async function getAllPosts() {
         await postService.getPosts().then((res) => {
             postsList.value = res.data;
+            quantityPosts.value = res.data.data.length;
         });
     }
 
@@ -69,5 +71,6 @@ export default function usePost() {
         postSelected,
         formSchedulePost,
         listPostSchedule,
+        quantityPosts
     }
 }

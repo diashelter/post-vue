@@ -11,7 +11,7 @@
             <th>Status</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody v-if="quantityPosts > 0">
           <tr v-for="post in postsList.data" :key="post.id">
             <td>{{ post.title }}</td>
             <td>{{ post.body }}</td>
@@ -24,6 +24,11 @@
             </td>
           </tr>
         </tbody>
+        <tbody v-else>
+          <tr>
+            <td colspan="3">Nenhum post encontrado</td>
+          </tr>
+        </tbody>
       </table>
     </div>
   </main>
@@ -33,7 +38,7 @@
 import { onMounted } from "vue";
 import usePost from "../services/Post/usePost";
 
-const { postsList, getAllPosts } = usePost();
+const { postsList, getAllPosts, quantityPosts } = usePost();
 onMounted(() => {
   getAllPosts();
 });
