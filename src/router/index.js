@@ -4,7 +4,7 @@ import CreateView from '../views/CreateView.vue'
 import Schedule from '../views/Schedule.vue'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(),
   routes: [
     {
       path: '/',
