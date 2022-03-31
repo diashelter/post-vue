@@ -1,7 +1,8 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import CreateView from '../views/CreateView.vue'
-import Schedule from '../views/Schedule.vue'
+import { createRouter, createWebHistory } from 'vue-router';
+import HomeView from '../views/HomeView.vue';
+import CreateView from '../views/CreateView.vue';
+import Schedule from '../views/Schedule.vue';
+import NotFound from '../views/NotFound.vue';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -20,6 +21,11 @@ const router = createRouter({
       path: '/agendar',
       name: 'agendar',
       component: Schedule
+    },
+    {
+      path: '/:catchAll(.*)',
+      name: 'not-found',
+      component: NotFound
     }
   ]
 })
