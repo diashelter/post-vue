@@ -6,16 +6,23 @@
       <table class="table table-bordered table-striped">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th></th>
+            <th>Título</th>
+            <th>Corpo</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>
-          <!-- <tr v-for="user in users.data" :key="user.id">
-                <td> {{ user.name }}</td>
-                <td> {{ user.email }}</td>
-            </tr> -->
+          <tr v-for="post in postsList.data" :key="post.id">
+            <td>{{ post.title }}</td>
+            <td>{{ post.body }}</td>
+            <td>
+              {{
+                post.scheduled_at === null
+                  ? "Aguardando agendamento"
+                  : "Agendado"
+              }}
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -23,4 +30,12 @@
 </template>
 
 <script setup>
+import { onMounted } from "vue";
+import usePost from "../services/Post/usePost";
+
+const { postsList, getAllPosts } = usePost();
+onMounted(() => {
+  getAllPosts();
+});
+
 </script>
